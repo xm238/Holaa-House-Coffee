@@ -166,19 +166,22 @@
     }
 
     .hero-logo-float {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      z-index: 3;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      right: auto;
+      z-index: 130;
       background: rgba(255, 255, 255, 0.94);
       border: 1px solid rgba(255, 255, 255, 0.85);
       border-radius: 14px;
       padding: 8px;
       box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+      max-width: calc(100vw - 20px);
     }
 
     .hero-logo-float img {
       width: 170px;
+      max-width: 100%;
       height: auto;
       object-fit: contain;
       display: block;
@@ -481,7 +484,7 @@
       display: grid;
       grid-template-columns: 1.1fr 1fr;
       gap: 18px;
-      align-items: stretch;
+      align-items: start;
     }
 
     .story-copy {
@@ -558,11 +561,6 @@
 
     .story-gallery figure:hover img {
       transform: scale(1.05);
-    }
-
-    .story-gallery figure.full {
-      grid-column: 1 / -1;
-      min-height: 220px;
     }
 
     .reviews-grid {
@@ -658,6 +656,37 @@
       min-height: 310px;
     }
 
+    .form-wrap {
+      padding: 0 24px 24px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .form-actions .btn {
+      flex: 1 1 220px;
+    }
+
+    .form-frame {
+      border-radius: 14px;
+      border: 1px solid #dce9e1;
+      overflow: hidden;
+      min-height: 560px;
+      background: #fff;
+    }
+
+    .form-frame iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 560px;
+      border: 0;
+    }
+
     .close-note {
       margin-top: 8px;
       font-size: 0.86rem;
@@ -737,21 +766,22 @@
 
     @media (max-width: 760px) {
       header {
-        padding-top: 66px;
+        padding-top: 76px;
       }
 
       .hero-logo-float {
-        position: static;
-        display: inline-flex;
-        margin-bottom: 12px;
+        top: 8px;
+        left: 8px;
+        padding: 6px;
+        border-radius: 10px;
       }
 
       .hero-logo-float img {
-        width: 124px;
+        width: 112px;
       }
 
       .hero-bg img {
-        min-height: 640px;
+        min-height: 560px;
       }
 
       .hero-grid {
@@ -786,7 +816,8 @@
       .menu-grid,
       .story-wrap,
       .reviews-grid,
-      .contact-grid {
+      .contact-grid,
+      .form-wrap {
         padding: 16px;
         gap: 10px;
       }
@@ -803,6 +834,10 @@
         min-height: 200px;
       }
 
+      .menu-grid .menu-card:last-child {
+        grid-column: 1 / -1;
+      }
+
       .story-gallery {
         grid-template-columns: 1fr;
       }
@@ -811,8 +846,7 @@
         grid-template-columns: 1fr;
       }
 
-      .story-gallery figure,
-      .story-gallery figure.full {
+      .story-gallery figure {
         min-height: 220px;
       }
 
@@ -832,12 +866,15 @@
       footer {
         margin-bottom: 98px;
       }
+
+      .form-frame,
+      .form-frame iframe {
+        min-height: 460px;
+      }
     }
 
-    @media (min-width: 761px) {
-      .brand {
-        margin-top: 6px;
-      }
+    .brand {
+      margin-top: 6px;
     }
   </style>
 </head>
@@ -986,15 +1023,15 @@
             <li data-i18n="s3">Day and night ambience appeal</li>
           </ul>
           <div class="story-copy-media">
-            <figure><img src="images/exterior-day.png" alt="Holaa Coffee House exterior"></figure>
-            <figure><img src="images/exterior-night.png" alt="Holaa Coffee House at night"></figure>
+            <figure><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80" alt="Stock coffee beans and cup"></figure>
+            <figure><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1200&q=80" alt="Stock latte in cafe"></figure>
           </div>
         </div>
         <div class="story-gallery">
           <figure><img src="images/interior-main.png" alt="Main seating area"></figure>
           <figure><img src="images/interior-bear-wall.png" alt="Interior teddy bear wall"></figure>
-          <figure class="full"><img src="images/interior-swing.png" alt="Swing corner with flowers"></figure>
-          <figure class="full"><img src="images/exterior-night.png" alt="Holaa exterior at night"></figure>
+          <figure><img src="images/interior-swing.png" alt="Swing corner with flowers"></figure>
+          <figure><img src="images/exterior-night.png" alt="Holaa exterior at night"></figure>
         </div>
       </div>
     </section>
@@ -1020,6 +1057,27 @@
           <div class="stars">★★★★★</div>
           <p data-i18n="r3">"Tasted good and overall a pleasant cafe experience."</p>
         </article>
+      </div>
+    </section>
+
+    <section class="section-card reveal" id="inquiry-form">
+      <div class="section-head">
+        <p class="section-eyebrow" data-i18n="formEyebrow">Inquiry Form</p>
+        <h2 class="section-title" data-i18n="formTitle">Send reservation or order details in one minute</h2>
+        <p class="section-sub" data-i18n="formSub">The form changes by language automatically (EN / TR / AR).</p>
+      </div>
+      <div class="form-wrap">
+        <div class="form-actions">
+          <a class="btn btn-primary" href="https://tally.so/r/VL56ly" target="_blank" rel="noopener noreferrer" data-i18n="ctaOpenForm" data-i18n-href="leadFormUrl">Open form in new tab</a>
+        </div>
+        <div class="form-frame">
+          <iframe
+            loading="lazy"
+            src="https://tally.so/r/VL56ly?transparentBackground=1"
+            data-i18n-src="leadFormEmbedUrl"
+            title="Holaa Coffee House inquiry form">
+          </iframe>
+        </div>
       </div>
     </section>
 
@@ -1050,7 +1108,7 @@
             <iframe
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-              src="https://maps.app.goo.gl/grzY8E8irJGdfDU97"
+              src="https://www.google.com/maps?q=Kavakl%C4%B1%2C%20Ye%C5%9Filyurt%20Cd.%20Demir%20Country%20Sitesi%20H%20Blok%2017%2F2%2C%2034520%20Beylikd%C3%BCz%C3%BC%2F%C4%B0stanbul&output=embed"
               title="Holaa Coffee House location">
             </iframe>
           </div>
@@ -1081,8 +1139,10 @@
         chipPrice: "₺100-₺200 per person",
         chipOpen: "Open today, closes 1:00 AM",
         leadFormUrl: "https://tally.so/r/VL56ly",
+        leadFormEmbedUrl: "https://tally.so/r/VL56ly?transparentBackground=1",
         ctaCall: "Call now",
         ctaDirections: "Get directions",
+        ctaOpenForm: "Open form in new tab",
         quickTitle: "Holaa Coffee House",
         quickSubtitle: "Coffee shop in Demir Country",
         quickReviews: "29 reviews",
@@ -1124,6 +1184,9 @@
         s3: "Day and night ambience appeal",
         reviewsEyebrow: "Review Highlights",
         reviewsTitle: "What customers say",
+        formEyebrow: "Inquiry Form",
+        formTitle: "Send reservation or order details in one minute",
+        formSub: "The form changes by language automatically (EN / TR / AR).",
         r1: "\"Nice and very comfortable setting. Loved the Americano.\"",
         r2: "\"Smiley faces and good service.\"",
         r3: "\"Tasted good and overall a pleasant cafe experience.\"",
@@ -1148,8 +1211,10 @@
         chipPrice: "Kişi başı ₺100-₺200",
         chipOpen: "Bugün açık, 01:00'de kapanıyor",
         leadFormUrl: "https://tally.so/r/MezxAk",
+        leadFormEmbedUrl: "https://tally.so/r/MezxAk?transparentBackground=1",
         ctaCall: "Hemen ara",
         ctaDirections: "Yol tarifi al",
+        ctaOpenForm: "Formu yeni sekmede aç",
         quickTitle: "Holaa Coffee House",
         quickSubtitle: "Demir Country içinde kahveci",
         quickReviews: "29 değerlendirme",
@@ -1191,6 +1256,9 @@
         s3: "Gündüz ve geceye uygun ambiyans",
         reviewsEyebrow: "Yorumlardan Öne Çıkanlar",
         reviewsTitle: "Müşteriler ne diyor",
+        formEyebrow: "Talep Formu",
+        formTitle: "Rezervasyon veya sipariş detaylarını 1 dakikada gönder",
+        formSub: "Form, seçilen dile göre otomatik değişir (EN / TR / AR).",
         r1: "\"Çok rahat bir ortam, Americano çok iyiydi.\"",
         r2: "\"Güler yüzlü ekip ve iyi hizmet.\"",
         r3: "\"Lezzetliydi, genel olarak güzel bir kafe deneyimi.\"",
@@ -1215,8 +1283,10 @@
         chipPrice: "₺100-₺200 للشخص",
         chipOpen: "مفتوح اليوم، الإغلاق 1:00 صباحًا",
         leadFormUrl: "https://tally.so/r/EkQO1r",
+        leadFormEmbedUrl: "https://tally.so/r/EkQO1r?transparentBackground=1",
         ctaCall: "اتصل الآن",
         ctaDirections: "احصل على الاتجاهات",
+        ctaOpenForm: "افتح النموذج في تبويب جديد",
         quickTitle: "Holaa Coffee House",
         quickSubtitle: "مقهى داخل ديمير كانتري",
         quickReviews: "29 مراجعة",
@@ -1258,6 +1328,9 @@
         s3: "أجواء مناسبة نهارًا وليلًا",
         reviewsEyebrow: "أبرز المراجعات",
         reviewsTitle: "ماذا يقول العملاء",
+        formEyebrow: "نموذج الطلب",
+        formTitle: "أرسل تفاصيل الحجز أو الطلب خلال دقيقة واحدة",
+        formSub: "النموذج يتغير تلقائيًا حسب اللغة (EN / TR / AR).",
         r1: "\"مكان مريح جدًا والقهوة الأمريكية كانت ممتازة.\"",
         r2: "\"وجوه مبتسمة وخدمة جيدة.\"",
         r3: "\"الطعم جيد والتجربة بشكل عام لطيفة.\"",
@@ -1294,6 +1367,12 @@
         const key = element.getAttribute("data-i18n-href");
         if (translations[selected][key]) {
           element.setAttribute("href", translations[selected][key]);
+        }
+      });
+      document.querySelectorAll("[data-i18n-src]").forEach((element) => {
+        const key = element.getAttribute("data-i18n-src");
+        if (translations[selected][key]) {
+          element.setAttribute("src", translations[selected][key]);
         }
       });
       localStorage.setItem("holaa-lang", selected);
