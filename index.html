@@ -124,7 +124,7 @@
     }
 
     header {
-      padding-top: 132px;
+      padding-top: 154px;
     }
 
     .hero {
@@ -168,8 +168,8 @@
     .hero-logo-float {
       position: fixed;
       top: 10px;
-      left: 10px;
-      right: auto;
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 130;
       background: rgba(255, 255, 255, 0.94);
       border: 1px solid rgba(255, 255, 255, 0.85);
@@ -180,7 +180,7 @@
     }
 
     .hero-logo-float img {
-      width: clamp(240px, 24vw, 360px);
+      width: 320px;
       max-width: 100%;
       height: auto;
       object-fit: contain;
@@ -813,21 +813,6 @@
     }
 
     @media (max-width: 760px) {
-      header {
-        padding-top: 116px;
-      }
-
-      .hero-logo-float {
-        top: 8px;
-        left: 8px;
-        padding: 8px;
-        border-radius: 12px;
-      }
-
-      .hero-logo-float img {
-        width: min(72vw, 250px);
-      }
-
       .hero-bg img {
         min-height: 560px;
       }
