@@ -813,6 +813,24 @@
     }
 
     @media (max-width: 760px) {
+      header {
+        padding-top: 22px;
+      }
+
+      .hero-logo-float {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        z-index: 2;
+        margin: 54px auto 10px;
+        width: fit-content;
+      }
+
+      .hero-logo-float img {
+        width: min(74vw, 300px);
+      }
+
       .hero-bg img {
         min-height: 560px;
       }
@@ -892,8 +910,9 @@
       }
 
       .lang-switch {
-        top: 10px;
-        right: 10px;
+        top: 8px;
+        right: 8px;
+        z-index: 210;
       }
 
       .mobile-bar {
