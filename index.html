@@ -28,6 +28,7 @@
       --radius-lg: 18px;
       --radius-md: 14px;
       --container: min(1180px, 92vw);
+      --desktop-header-offset: 0px;
     }
 
     * {
@@ -125,6 +126,10 @@
 
     header {
       padding-top: 154px;
+    }
+
+    main {
+      padding-top: var(--desktop-header-offset);
     }
 
     .hero {
@@ -809,6 +814,16 @@
 
       .reviews-grid {
         grid-template-columns: 1fr;
+      }
+    }
+
+    @media (min-width: 761px) {
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 20;
       }
     }
 
@@ -1535,8 +1550,26 @@
       });
     }, { threshold: 0.14 });
 
+    function syncDesktopHeaderOffset() {
+      const header = document.querySelector("header");
+      if (!header) return;
+      if (window.innerWidth > 760) {
+        const headerHeight = Math.ceil(header.getBoundingClientRect().height + 12);
+        document.documentElement.style.setProperty("--desktop-header-offset", `${headerHeight}px`);
+        return;
+      }
+      document.documentElement.style.setProperty("--desktop-header-offset", "0px");
+    }
+
+    window.addEventListener("resize", syncDesktopHeaderOffset);
+    window.addEventListener("load", syncDesktopHeaderOffset);
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(syncDesktopHeaderOffset);
+    }
+
     document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
     setLanguage(localStorage.getItem("holaa-lang") || "en");
+    syncDesktopHeaderOffset();
   </script>
 
   <script type="application/ld+json">
