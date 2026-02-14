@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Holaa Coffee House | Beylikduzu, Istanbul</title>
-  <meta name="description" content="Holaa Coffee House in Beylikduzu, Istanbul. Cozy vibe, quality coffee, desserts, dine-in, curbside pickup, and no-contact delivery.">
-  <meta property="og:title" content="Holaa Coffee House - Beylikduzu">
+  <title>Holaa Coffee House | Beylikdüzü, İstanbul</title>
+  <meta name="description" content="Holaa Coffee House in Beylikdüzü, İstanbul. Cozy vibe, quality coffee, desserts, dine-in, curbside pickup, and no-contact delivery.">
+  <meta property="og:title" content="Holaa Coffee House - Beylikdüzü">
   <meta property="og:description" content="Rated 4.3 by guests. Visit Holaa Coffee House for coffee, desserts, and a cozy atmosphere.">
   <meta property="og:image" content="images/exterior-day.png">
   <meta property="og:type" content="website">
@@ -165,6 +165,25 @@
       padding: clamp(24px, 4vw, 44px);
     }
 
+    .hero-logo-float {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 3;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      border-radius: 14px;
+      padding: 8px;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-logo-float img {
+      width: 170px;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
     .hero-copy {
       position: relative;
     }
@@ -172,21 +191,12 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
       background: rgba(248, 255, 252, 0.15);
       border: 1px solid rgba(255, 255, 255, 0.24);
       border-radius: 999px;
-      padding: 6px 14px 6px 7px;
+      padding: 8px 14px;
       margin-bottom: 18px;
-    }
-
-    .brand img {
-      width: 52px;
-      height: 28px;
-      object-fit: contain;
-      background: rgba(255, 255, 255, 0.92);
-      border-radius: 8px;
-      padding: 2px;
     }
 
     .brand-title {
@@ -479,9 +489,9 @@
       border: 1px solid var(--line);
       border-radius: 18px;
       padding: 18px;
-      display: grid;
+      display: flex;
+      flex-direction: column;
       gap: 14px;
-      align-content: start;
     }
 
     .story-copy p {
@@ -502,6 +512,29 @@
       color: #1c3a2f;
       font-size: 0.9rem;
       font-weight: 600;
+    }
+
+    .story-copy-media {
+      margin-top: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .story-copy-media figure {
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid #dbe7df;
+      min-height: 165px;
+    }
+
+    .story-copy-media figure img {
+      height: 100%;
+      transition: transform 0.35s ease;
+    }
+
+    .story-copy-media figure:hover img {
+      transform: scale(1.05);
     }
 
     .story-gallery {
@@ -707,6 +740,16 @@
         padding-top: 66px;
       }
 
+      .hero-logo-float {
+        position: static;
+        display: inline-flex;
+        margin-bottom: 12px;
+      }
+
+      .hero-logo-float img {
+        width: 124px;
+      }
+
       .hero-bg img {
         min-height: 640px;
       }
@@ -715,16 +758,16 @@
         padding: 20px;
       }
 
-      .hero-copy {
-        padding-top: 0;
-      }
-
       .hero-title {
         max-width: none;
       }
 
       .hero-sub {
         margin-bottom: 18px;
+      }
+
+      .hero-cta {
+        display: none;
       }
 
       .hero-cta .btn {
@@ -764,6 +807,10 @@
         grid-template-columns: 1fr;
       }
 
+      .story-copy-media {
+        grid-template-columns: 1fr;
+      }
+
       .story-gallery figure,
       .story-gallery figure.full {
         min-height: 220px;
@@ -788,34 +835,8 @@
     }
 
     @media (min-width: 761px) {
-      .hero-copy {
-        padding-top: 124px;
-      }
-
       .brand {
-        position: absolute;
-        top: 0;
-        left: 0;
-        margin-bottom: 0;
-        padding: 12px 22px 12px 12px;
-        gap: 16px;
-        background: rgba(26, 38, 34, 0.62);
-        border: 1px solid rgba(230, 243, 236, 0.34);
-        backdrop-filter: blur(9px);
-        box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
-      }
-
-      .brand img {
-        width: 124px;
-        height: 68px;
-        border-radius: 12px;
-        padding: 5px;
-      }
-
-      .brand-title {
-        font-size: clamp(1.9rem, 2.4vw, 2.8rem);
-        font-weight: 800;
-        line-height: 1;
+        margin-top: 6px;
       }
     }
   </style>
@@ -832,13 +853,15 @@
       <div class="hero-bg">
         <img src="images/exterior-day.png" alt="Holaa Coffee House exterior daytime">
       </div>
+      <div class="hero-logo-float" aria-label="Holaa Coffee House logo">
+        <img src="images/logo-holaa.png" alt="Holaa Coffee House logo">
+      </div>
       <div class="hero-grid">
         <div class="hero-copy">
           <div class="brand">
-            <img src="images/logo-holaa.png" alt="Holaa Coffee House logo">
-            <div class="brand-title" data-i18n="brandLocation">Beylikduzu, Istanbul</div>
+            <div class="brand-title" data-i18n="brandLocation">Beylikdüzü, İstanbul</div>
           </div>
-          <h1 class="hero-title" data-i18n="heroTitle">Your New Favorite Coffee Spot in Beylikduzu</h1>
+          <h1 class="hero-title" data-i18n="heroTitle">Your New Favorite Coffee Spot in Beylikdüzü</h1>
           <p class="hero-sub" data-i18n="heroSub">Premium coffee, fresh desserts, and a vibe people keep coming back for. Walk in, pick up curbside, or order no-contact delivery.</p>
           <div class="hero-chips">
             <span class="chip" data-i18n="chipRating">4.3 ★ (29 reviews)</span>
@@ -847,7 +870,7 @@
           </div>
           <div class="hero-cta">
             <a class="btn btn-primary" href="tel:+905307293824" data-i18n="ctaCall">Call now</a>
-            <a class="btn btn-secondary" href="https://maps.google.com/?q=Kavakli%2C%20Yesilyurt%20Cd.%20Demir%20Country%20Sitesi%20H%20Blok%2017%2F2%2C%2034520%20Beylikduzu%2FIstanbul" target="_blank" rel="noopener noreferrer" data-i18n="ctaDirections">Get directions</a>
+            <a class="btn btn-secondary" href="https://maps.app.goo.gl/grzY8E8irJGdfDU97" target="_blank" rel="noopener noreferrer" data-i18n="ctaDirections">Get directions</a>
           </div>
         </div>
 
@@ -863,12 +886,12 @@
             </div>
           </div>
           <ul class="quick-list">
-            <li data-i18n="quickAddress">Kavakli, Yesilyurt Cd. Demir Country Sitesi H Blok 17/2, Beylikduzu / Istanbul</li>
+            <li data-i18n="quickAddress">Kavaklı, Yeşilyurt Cd. Demir Country Sitesi H Blok 17/2, Beylikdüzü / İstanbul</li>
             <li data-i18n="quickService">Dine-in, curbside pickup, no-contact delivery</li>
-            <li data-i18n="quickPlusCode">Plus Code: XMM5+87 Beylikduzu, Istanbul</li>
+            <li data-i18n="quickPlusCode">Plus Code: XMM5+87 Beylikdüzü, İstanbul</li>
           </ul>
           <div class="quick-buttons">
-            <a class="btn btn-primary" href="https://wa.me/905307293824?text=Hi%20Holaa%20Coffee%20House%2C%20I%20want%20to%20order." target="_blank" rel="noopener noreferrer" data-i18n="ctaWhatsApp">Order on WhatsApp</a>
+            <a class="btn btn-primary" href="https://tally.so/r/VL56ly" target="_blank" rel="noopener noreferrer" data-i18n="ctaWhatsApp" data-i18n-href="leadFormUrl">Open inquiry form</a>
             <a class="btn btn-secondary" href="#contact" data-i18n="ctaReserve">See contact options</a>
           </div>
         </aside>
@@ -962,6 +985,10 @@
             <li data-i18n="s2">Comfortable seating for groups</li>
             <li data-i18n="s3">Day and night ambience appeal</li>
           </ul>
+          <div class="story-copy-media">
+            <figure><img src="images/exterior-day.png" alt="Holaa Coffee House exterior"></figure>
+            <figure><img src="images/exterior-night.png" alt="Holaa Coffee House at night"></figure>
+          </div>
         </div>
         <div class="story-gallery">
           <figure><img src="images/interior-main.png" alt="Main seating area"></figure>
@@ -1005,7 +1032,7 @@
         <article class="contact-card">
           <h3 data-i18n="visitInfoTitle">Visit information</h3>
           <ul class="meta-list">
-            <li data-i18n="addressLine">Kavakli, Yesilyurt Cd. Demir Country Sitesi H Blok 17/2, 34520 Beylikduzu/Istanbul</li>
+            <li data-i18n="addressLine">Kavaklı, Yeşilyurt Cd. Demir Country Sitesi H Blok 17/2, 34520 Beylikdüzü/İstanbul</li>
             <li data-i18n="phoneLine">Phone: 0530 729 38 24</li>
             <li data-i18n="locationLine">Located in: Demir Country</li>
             <li data-i18n="servicesLine">Services: Dine-in / Curbside pickup / No-contact delivery</li>
@@ -1013,7 +1040,8 @@
           <p class="close-note" data-i18n="closeNote">Open now. Closes at 1:00 AM.</p>
           <div class="cta-row">
             <a class="btn btn-primary" href="tel:+905307293824" data-i18n="ctaCall">Call now</a>
-            <a class="btn btn-secondary" href="https://maps.google.com/?q=Kavakli%2C%20Yesilyurt%20Cd.%20Demir%20Country%20Sitesi%20H%20Blok%2017%2F2%2C%2034520%20Beylikduzu%2FIstanbul" target="_blank" rel="noopener noreferrer" data-i18n="ctaDirections">Get directions</a>
+            <a class="btn btn-secondary" href="https://maps.app.goo.gl/grzY8E8irJGdfDU97" target="_blank" rel="noopener noreferrer" data-i18n="ctaDirections">Get directions</a>
+            <a class="btn btn-secondary" href="https://tally.so/r/VL56ly" target="_blank" rel="noopener noreferrer" data-i18n="ctaForm" data-i18n-href="leadFormUrl">Inquiry form</a>
           </div>
         </article>
         <article class="contact-card">
@@ -1022,7 +1050,7 @@
             <iframe
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps?q=Kavaklı,+Yeşilyurt+Cd.+Demir+Country+Sitesi+H+Blok+17/2,+34520+Beylikdüzü/İstanbul&output=embed"
+              src="https://maps.app.goo.gl/grzY8E8irJGdfDU97"
               title="Holaa Coffee House location">
             </iframe>
           </div>
@@ -1032,35 +1060,36 @@
   </main>
 
   <footer>
-    <p data-i18n="footerText">Holaa Coffee House - Beylikduzu | Made for high-conversion local traffic</p>
+    <p data-i18n="footerText">Holaa Coffee House - Beylikdüzü | Made for high-conversion local traffic</p>
   </footer>
 
   <div class="mobile-bar">
     <div class="mobile-bar-wrap">
       <a class="btn btn-primary" href="tel:+905307293824" data-i18n="ctaCall">Call now</a>
-      <a class="btn btn-secondary" href="https://maps.google.com/?q=Kavakli%2C%20Yesilyurt%20Cd.%20Demir%20Country%20Sitesi%20H%20Blok%2017%2F2%2C%2034520%20Beylikduzu%2FIstanbul" target="_blank" rel="noopener noreferrer" data-i18n="ctaDirections">Get directions</a>
-      <a class="btn btn-secondary" href="https://wa.me/905307293824?text=Hi%20Holaa%20Coffee%20House%2C%20I%20want%20to%20order." target="_blank" rel="noopener noreferrer" data-i18n="ctaOrder">Order</a>
+      <a class="btn btn-secondary" href="https://maps.app.goo.gl/grzY8E8irJGdfDU97" target="_blank" rel="noopener noreferrer" data-i18n="ctaDirections">Get directions</a>
+      <a class="btn btn-secondary" href="https://tally.so/r/VL56ly" target="_blank" rel="noopener noreferrer" data-i18n="ctaOrder" data-i18n-href="leadFormUrl">Order</a>
     </div>
   </div>
 
   <script>
     const translations = {
       en: {
-        brandLocation: "Beylikduzu, Istanbul",
-        heroTitle: "Your New Favorite Coffee Spot in Beylikduzu",
+        brandLocation: "Beylikdüzü, İstanbul",
+        heroTitle: "Your New Favorite Coffee Spot in Beylikdüzü",
         heroSub: "Premium coffee, fresh desserts, and a vibe people keep coming back for. Walk in, pick up curbside, or order no-contact delivery.",
         chipRating: "4.3 ★ (29 reviews)",
         chipPrice: "₺100-₺200 per person",
         chipOpen: "Open today, closes 1:00 AM",
+        leadFormUrl: "https://tally.so/r/VL56ly",
         ctaCall: "Call now",
         ctaDirections: "Get directions",
         quickTitle: "Holaa Coffee House",
         quickSubtitle: "Coffee shop in Demir Country",
         quickReviews: "29 reviews",
-        quickAddress: "Kavakli, Yesilyurt Cd. Demir Country Sitesi H Blok 17/2, Beylikduzu / Istanbul",
+        quickAddress: "Kavaklı, Yeşilyurt Cd. Demir Country Sitesi H Blok 17/2, Beylikdüzü / İstanbul",
         quickService: "Dine-in, curbside pickup, no-contact delivery",
-        quickPlusCode: "Plus Code: XMM5+87 Beylikduzu, Istanbul",
-        ctaWhatsApp: "Order on WhatsApp",
+        quickPlusCode: "Plus Code: XMM5+87 Beylikdüzü, İstanbul",
+        ctaWhatsApp: "Open inquiry form",
         ctaReserve: "See contact options",
         highlightsEyebrow: "Why People Choose Holaa",
         highlightsTitle: "A coffee experience that feels warm, modern, and social",
@@ -1101,79 +1130,82 @@
         contactEyebrow: "Contact & Visit",
         contactTitle: "Easy to find. Easy to order. Easy to return.",
         visitInfoTitle: "Visit information",
-        addressLine: "Kavakli, Yesilyurt Cd. Demir Country Sitesi H Blok 17/2, 34520 Beylikduzu/Istanbul",
+        addressLine: "Kavaklı, Yeşilyurt Cd. Demir Country Sitesi H Blok 17/2, 34520 Beylikdüzü/İstanbul",
         phoneLine: "Phone: 0530 729 38 24",
         locationLine: "Located in: Demir Country",
         servicesLine: "Services: Dine-in / Curbside pickup / No-contact delivery",
         closeNote: "Open now. Closes at 1:00 AM.",
         mapTitle: "Map preview",
-        footerText: "Holaa Coffee House - Beylikduzu | Made for high-conversion local traffic",
-        ctaOrder: "Order"
+        footerText: "Holaa Coffee House - Beylikdüzü | Made for high-conversion local traffic",
+        ctaOrder: "Order",
+        ctaForm: "Inquiry form"
       },
       tr: {
-        brandLocation: "Beylikduzu, Istanbul",
-        heroTitle: "Beylikduzu'ndeki Yeni Favori Kahve Noktaniz",
-        heroSub: "Premium kahve, taze tatlilar ve insanlari tekrar tekrar getiren bir atmosfer. Mekanda oturun, kaldirimdan teslim alin veya temassiz teslimat siparisi verin.",
-        chipRating: "4.3 ★ (29 degerlendirme)",
-        chipPrice: "Kisi basi ₺100-₺200",
-        chipOpen: "Bugun acik, 01:00'de kapaniyor",
+        brandLocation: "Beylikdüzü, İstanbul",
+        heroTitle: "Beylikdüzü'ndeki Yeni Favori Kahve Noktanız",
+        heroSub: "Premium kahve, taze tatlılar ve insanları tekrar tekrar getiren bir atmosfer. Mekanda oturun, kaldırımdan teslim alın veya temassız teslimat siparişi verin.",
+        chipRating: "4.3 ★ (29 değerlendirme)",
+        chipPrice: "Kişi başı ₺100-₺200",
+        chipOpen: "Bugün açık, 01:00'de kapanıyor",
+        leadFormUrl: "https://tally.so/r/MezxAk",
         ctaCall: "Hemen ara",
         ctaDirections: "Yol tarifi al",
         quickTitle: "Holaa Coffee House",
-        quickSubtitle: "Demir Country icinde kahveci",
-        quickReviews: "29 degerlendirme",
-        quickAddress: "Kavakli, Yesilyurt Cd. Demir Country Sitesi H Blok 17/2, Beylikduzu / Istanbul",
-        quickService: "Mekanda servis, kaldirimdan teslim, temassiz teslimat",
-        quickPlusCode: "Plus Kod: XMM5+87 Beylikduzu, Istanbul",
-        ctaWhatsApp: "WhatsApp'tan siparis ver",
-        ctaReserve: "Iletisim secenekleri",
-        highlightsEyebrow: "Insanlar Neden Holaa'yi Seciyor",
+        quickSubtitle: "Demir Country içinde kahveci",
+        quickReviews: "29 değerlendirme",
+        quickAddress: "Kavaklı, Yeşilyurt Cd. Demir Country Sitesi H Blok 17/2, Beylikdüzü / İstanbul",
+        quickService: "Mekanda servis, kaldırımdan teslim, temassız teslimat",
+        quickPlusCode: "Plus Kod: XMM5+87 Beylikdüzü, İstanbul",
+        ctaWhatsApp: "Talep formunu aç",
+        ctaReserve: "İletişim seçenekleri",
+        highlightsEyebrow: "İnsanlar Neden Holaa'yı Seçiyor",
         highlightsTitle: "Samimi, modern ve sosyal bir kahve deneyimi",
-        highlightsSub: "Gunluk kahve rutini, tatli molasi ve geceye uzayan bulusmalar icin tasarlandi.",
-        h1Title: "Yerelde guvenilir",
-        h1Text: "Gercek ziyaretcilerden 4.3 puan ve tekrar gelen musteri kitlesi.",
-        h2Title: "Guclu fiyat seviyesi",
-        h2Text: "Kisi basi ortalama ₺100-₺200 bandinda rahat fiyatlar.",
+        highlightsSub: "Günlük kahve rutini, tatlı molası ve geceye uzayan buluşmalar için tasarlandı.",
+        h1Title: "Yerelde güvenilir",
+        h1Text: "Gerçek ziyaretçilerden 4.3 puan ve tekrar gelen müşteri kitlesi.",
+        h2Title: "Güçlü fiyat seviyesi",
+        h2Text: "Kişi başı ortalama ₺100-₺200 bandında rahat fiyatlar.",
         h3Title: "Esnek servis",
-        h3Text: "Mekanda servis, kaldirimdan teslim ve temassiz teslimat secenekleri.",
-        h4Title: "Gec saate kadar acik",
-        h4Text: "Aksam kahve planlari icin 01:00'e kadar acik.",
-        menuEyebrow: "En Cok Tercih Edilenler",
-        menuTitle: "Hizli satan gorsel menu anlari",
-        menuSub: "Bu gorseller reklam, hikaye ve siparis yonlendirmesinde yuksek donusum icin idealdir.",
-        m1Title: "Cay + tatli tabagi",
-        m1Text: "Ogleden sonra eslesmesi icin ideal.",
-        m2Title: "Imza latte",
-        m2Text: "Sosyal medyada one cikan latte sunumu.",
+        h3Text: "Mekanda servis, kaldırımdan teslim ve temassız teslimat seçenekleri.",
+        h4Title: "Geç saate kadar açık",
+        h4Text: "Akşam kahve planları için 01:00'e kadar açık.",
+        menuEyebrow: "En Çok Tercih Edilenler",
+        menuTitle: "Hızlı satan görsel menü anları",
+        menuSub: "Bu görseller reklam, hikaye ve sipariş yönlendirmesinde yüksek dönüşüm için idealdir.",
+        m1Title: "Çay + tatlı tabağı",
+        m1Text: "Öğleden sonra eşleşmesi için ideal.",
+        m2Title: "İmza latte",
+        m2Text: "Sosyal medyada öne çıkan latte sunumu.",
         m3Title: "Kahve + pasta kombosu",
-        m3Text: "En cok satan konforlu ikili.",
-        m4Title: "Cikolatali pasta",
-        m4Text: "Yogun, katmanli ve cok fotogenik.",
-        m5Title: "Tatli kampanyasi",
-        m5Text: "Promosyon icin hazir gorsel.",
+        m3Text: "En çok satan konforlu ikili.",
+        m4Title: "Çikolatalı pasta",
+        m4Text: "Yoğun, katmanlı ve çok fotojenik.",
+        m5Title: "Tatlı kampanyası",
+        m5Text: "Promosyon için hazır görsel.",
         vibeEyebrow: "Atmosfer",
-        vibeTitle: "Sohbet, fotograf ve tekrar ziyaret icin tasarlandi",
-        storyP1: "Holaa, modern oturma duzeni ve sicak isiklarla hizli kahve molalarini uzun keyifli anlara donusturur.",
-        storyP2: "Icerideki dikkat cekici detaylar, organik olarak yeni musteri ceken icerik uretimini kolaylastirir.",
-        s1: "Fotograf icin ideal koseler",
-        s2: "Gruplar icin rahat oturma duzeni",
-        s3: "Gunduz ve geceye uygun ambiyans",
-        reviewsEyebrow: "Yorumlardan One Cikanlar",
-        reviewsTitle: "Musteriler ne diyor",
-        r1: "\"Cok rahat bir ortam, Americano cok iyiydi.\"",
-        r2: "\"Guler yuzlu ekip ve iyi hizmet.\"",
-        r3: "\"Lezzetliydi, genel olarak guzel bir kafe deneyimi.\"",
-        contactEyebrow: "Iletisim ve Ziyaret",
-        contactTitle: "Bulmasi kolay. Siparis vermesi kolay. Tekrar gelmesi kolay.",
+        vibeTitle: "Sohbet, fotoğraf ve tekrar ziyaret için tasarlandı",
+        storyP1: "Holaa, modern oturma düzeni ve sıcak ışıklarla hızlı kahve molalarını uzun keyifli anlara dönüştürür.",
+        storyP2: "İçerideki dikkat çekici detaylar, organik olarak yeni müşteri çeken içerik üretimini kolaylaştırır.",
+        s1: "Fotoğraf için ideal köşeler",
+        s2: "Gruplar için rahat oturma düzeni",
+        s3: "Gündüz ve geceye uygun ambiyans",
+        reviewsEyebrow: "Yorumlardan Öne Çıkanlar",
+        reviewsTitle: "Müşteriler ne diyor",
+        r1: "\"Çok rahat bir ortam, Americano çok iyiydi.\"",
+        r2: "\"Güler yüzlü ekip ve iyi hizmet.\"",
+        r3: "\"Lezzetliydi, genel olarak güzel bir kafe deneyimi.\"",
+        contactEyebrow: "İletişim ve Ziyaret",
+        contactTitle: "Bulması kolay. Sipariş vermesi kolay. Tekrar gelmesi kolay.",
         visitInfoTitle: "Ziyaret bilgileri",
-        addressLine: "Kavakli, Yesilyurt Cd. Demir Country Sitesi H Blok 17/2, 34520 Beylikduzu/Istanbul",
+        addressLine: "Kavaklı, Yeşilyurt Cd. Demir Country Sitesi H Blok 17/2, 34520 Beylikdüzü/İstanbul",
         phoneLine: "Telefon: 0530 729 38 24",
-        locationLine: "Bulundugu yer: Demir Country",
-        servicesLine: "Hizmetler: Mekanda / Kaldirimdan teslim / Temassiz teslimat",
-        closeNote: "Su an acik. 01:00'de kapaniyor.",
-        mapTitle: "Harita onizleme",
-        footerText: "Holaa Coffee House - Beylikduzu | Yuksek donusumlu yerel trafik icin tasarlandi",
-        ctaOrder: "Siparis ver"
+        locationLine: "Bulunduğu yer: Demir Country",
+        servicesLine: "Hizmetler: Mekanda / Kaldırımdan teslim / Temassız teslimat",
+        closeNote: "Şu an açık. 01:00'de kapanıyor.",
+        mapTitle: "Harita önizleme",
+        footerText: "Holaa Coffee House - Beylikdüzü | Yüksek dönüşümlü yerel trafik için tasarlandı",
+        ctaOrder: "Sipariş ver",
+        ctaForm: "Talep formu"
       },
       ar: {
         brandLocation: "بيليك دوزو، إسطنبول",
@@ -1182,6 +1214,7 @@
         chipRating: "4.3 ★ (29 مراجعة)",
         chipPrice: "₺100-₺200 للشخص",
         chipOpen: "مفتوح اليوم، الإغلاق 1:00 صباحًا",
+        leadFormUrl: "https://tally.so/r/EkQO1r",
         ctaCall: "اتصل الآن",
         ctaDirections: "احصل على الاتجاهات",
         quickTitle: "Holaa Coffee House",
@@ -1190,7 +1223,7 @@
         quickAddress: "كاواكلي، شارع يشيل يورت، ديمير كانتري، بلوك H 17/2، بيليك دوزو / إسطنبول",
         quickService: "داخل المقهى، استلام من السيارة، وتوصيل بدون تواصل",
         quickPlusCode: "رمز الموقع: XMM5+87 بيليك دوزو، إسطنبول",
-        ctaWhatsApp: "اطلب عبر واتساب",
+        ctaWhatsApp: "افتح نموذج الطلب",
         ctaReserve: "عرض خيارات التواصل",
         highlightsEyebrow: "لماذا يختار الناس Holaa",
         highlightsTitle: "تجربة قهوة دافئة وعصرية واجتماعية",
@@ -1238,7 +1271,8 @@
         closeNote: "مفتوح الآن. الإغلاق 1:00 صباحًا.",
         mapTitle: "معاينة الخريطة",
         footerText: "Holaa Coffee House - بيليك دوزو | صفحة مصممة لتحويل الزوار المحليين لعملاء",
-        ctaOrder: "اطلب الآن"
+        ctaOrder: "اطلب الآن",
+        ctaForm: "نموذج الطلب"
       }
     };
 
@@ -1254,6 +1288,12 @@
         const key = element.getAttribute("data-i18n");
         if (translations[selected][key]) {
           element.textContent = translations[selected][key];
+        }
+      });
+      document.querySelectorAll("[data-i18n-href]").forEach((element) => {
+        const key = element.getAttribute("data-i18n-href");
+        if (translations[selected][key]) {
+          element.setAttribute("href", translations[selected][key]);
         }
       });
       localStorage.setItem("holaa-lang", selected);
@@ -1282,7 +1322,7 @@
   {
     "@context": "https://schema.org",
     "@type": "CafeOrCoffeeShop",
-    "name": "Holaa Coffee House - Beylikduzu",
+    "name": "Holaa Coffee House - Beylikdüzü",
     "image": [
       "images/exterior-day.png",
       "images/interior-main.png",
@@ -1292,9 +1332,9 @@
     "priceRange": "₺100-₺200",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Kavakli, Yesilyurt Cd. Demir Country Sitesi H Blok 17/2",
-      "addressLocality": "Beylikduzu",
-      "addressRegion": "Istanbul",
+      "streetAddress": "Kavaklı, Yeşilyurt Cd. Demir Country Sitesi H Blok 17/2",
+      "addressLocality": "Beylikdüzü",
+      "addressRegion": "İstanbul",
       "postalCode": "34520",
       "addressCountry": "TR"
     },
