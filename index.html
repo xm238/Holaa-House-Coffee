@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holaa Coffee House | Beylikduzu, Istanbul</title>
+  <meta name="description" content="Holaa Coffee House in Beylikduzu, Istanbul. Cozy vibe, quality coffee, desserts, dine-in, curbside pickup, and no-contact delivery.">
+  <meta property="og:title" content="Holaa Coffee House - Beylikduzu">
+  <meta property="og:description" content="Rated 4.3 by guests. Visit Holaa Coffee House for coffee, desserts, and a cozy atmosphere.">
+  <meta property="og:image" content="images/exterior-day.png">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#12332a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-1: #fff8ee;
+      --bg-2: #f5e8d5;
+      --ink: #1f2a24;
+      --muted: #5f6a62;
+      --accent: #9c4f2b;
+      --accent-2: #0f6e4b;
+      --card: rgba(255, 255, 255, 0.88);
+      --line: rgba(31, 42, 36, 0.1);
+      --shadow: 0 20px 60px rgba(19, 39, 31, 0.15);
+      --radius-xl: 26px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --container: min(1180px, 92vw);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Manrope", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 700px at 4% -10%, rgba(35, 117, 83, 0.18), transparent 60%),
+        radial-gradient(900px 500px at 100% 8%, rgba(156, 79, 43, 0.16), transparent 70%),
+        linear-gradient(180deg, var(--bg-1), var(--bg-2));
+      min-height: 100vh;
+      line-height: 1.45;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.26;
+      background-image:
+        radial-gradient(rgba(22, 54, 43, 0.05) 0.75px, transparent 0.75px);
+      background-size: 3px 3px;
+      z-index: -1;
+    }
+
+    body[dir="rtl"] {
+      font-family: "Cairo", sans-serif;
+    }
+
+    body[dir="rtl"] .brand-title,
+    body[dir="rtl"] .hero-title,
+    body[dir="rtl"] .section-title {
+      font-family: "Cairo", sans-serif;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: var(--container);
+      margin-inline: auto;
+    }
+
+    .lang-switch {
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      z-index: 99;
+      background: rgba(12, 20, 17, 0.86);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(14px);
+      border-radius: 999px;
+      display: flex;
+      padding: 6px;
+      gap: 6px;
+      box-shadow: var(--shadow);
+    }
+
+    .lang-switch button {
+      border: 0;
+      background: transparent;
+      color: #d4dfd8;
+      padding: 8px 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .lang-switch button.active {
+      background: #f5fff9;
+      color: #0e3728;
+    }
+
+    header {
+      padding-top: 80px;
+    }
+
+    .hero {
+      width: var(--container);
+      margin: 0 auto 38px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+    }
+
+    .hero-bg img {
+      height: 100%;
+      min-height: 590px;
+      filter: brightness(0.45) saturate(1.05);
+    }
+
+    .hero-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(105deg, rgba(8, 16, 13, 0.88), rgba(11, 28, 20, 0.52) 58%, rgba(26, 62, 45, 0.45));
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.14fr minmax(260px, 420px);
+      gap: 24px;
+      align-items: stretch;
+      padding: clamp(24px, 4vw, 44px);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(248, 255, 252, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 999px;
+      padding: 6px 14px 6px 7px;
+      margin-bottom: 18px;
+    }
+
+    .brand img {
+      width: 52px;
+      height: 28px;
+      object-fit: contain;
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 8px;
+      padding: 2px;
+    }
+
+    .brand-title {
+      color: #e7f6ef;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      color: #fff9f0;
+      font-size: clamp(2rem, 4.2vw, 3.8rem);
+      line-height: 1.02;
+      margin-bottom: 12px;
+      max-width: 13ch;
+      text-wrap: balance;
+    }
+
+    .hero-sub {
+      color: #d6e8de;
+      max-width: 56ch;
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      margin-bottom: 26px;
+    }
+
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #f2fff8;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.11);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      border: 0;
+      cursor: pointer;
+      border-radius: 14px;
+      padding: 14px 18px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 50px;
+      line-height: 1;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(140deg, #1ba26f, #0f6e4b);
+      color: #effff8;
+      box-shadow: 0 14px 28px rgba(11, 93, 62, 0.35);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #f6fff9;
+    }
+
+    .quick-card {
+      background: rgba(253, 246, 235, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-height: 100%;
+    }
+
+    .quick-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .quick-top h2 {
+      font-size: 1.05rem;
+      color: #163628;
+      letter-spacing: 0.01em;
+      margin-bottom: 4px;
+    }
+
+    .quick-top p {
+      color: #54675f;
+      font-size: 0.88rem;
+    }
+
+    .rating-pill {
+      border-radius: 12px;
+      background: #12382a;
+      color: #f4fff9;
+      padding: 8px 10px;
+      font-size: 0.86rem;
+      text-align: center;
+      min-width: 86px;
+    }
+
+    .rating-pill strong {
+      display: block;
+      font-size: 1.2rem;
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+
+    .quick-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .quick-list li {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 11px 12px;
+      font-size: 0.88rem;
+      color: #2b4138;
+    }
+
+    .quick-buttons {
+      display: grid;
+      gap: 10px;
+    }
+
+    .quick-buttons .btn {
+      width: 100%;
+      min-height: 48px;
+      border-radius: 12px;
+      padding: 13px 12px;
+      font-size: 0.9rem;
+    }
+
+    .quick-buttons .btn-primary {
+      box-shadow: none;
+    }
+
+    .quick-buttons .btn-secondary {
+      color: #163828;
+      background: #f0f7f3;
+      border-color: #cee4d8;
+    }
+
+    main section {
+      margin-bottom: 28px;
+    }
+
+    .section-card {
+      width: var(--container);
+      margin-inline: auto;
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .section-head {
+      padding: 26px 24px 0;
+    }
+
+    .section-eyebrow {
+      color: var(--accent-2);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      line-height: 1.08;
+      color: #152c24;
+      margin-bottom: 8px;
+    }
+
+    .section-sub {
+      color: #596a63;
+      max-width: 60ch;
+      margin-bottom: 8px;
+    }
+
+    .highlights-grid {
+      padding: 24px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .highlight {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .highlight h4 {
+      font-size: 1.05rem;
+      color: #17392a;
+      margin-bottom: 6px;
+    }
+
+    .highlight p {
+      color: #5b6862;
+      font-size: 0.9rem;
+    }
+
+    .menu-grid {
+      padding: 0 24px 24px;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .menu-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      min-height: 240px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: 0 10px 24px rgba(17, 36, 29, 0.14);
+    }
+
+    .menu-card img {
+      height: 100%;
+      transition: transform 0.35s ease;
+    }
+
+    .menu-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .menu-overlay {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 16px 12px 12px;
+      background: linear-gradient(180deg, transparent 10%, rgba(10, 20, 17, 0.86));
+      color: #f6fff8;
+    }
+
+    .menu-overlay h3 {
+      font-size: 1rem;
+      margin-bottom: 3px;
+    }
+
+    .menu-overlay p {
+      font-size: 0.8rem;
+      opacity: 0.92;
+    }
+
+    .story-wrap {
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .story-copy {
+      background: #fffdf8;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .story-copy p {
+      color: #4f6059;
+    }
+
+    .story-points {
+      display: grid;
+      gap: 10px;
+    }
+
+    .story-points li {
+      list-style: none;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid #dfebe4;
+      background: #f7fcf9;
+      color: #1c3a2f;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .story-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .story-gallery figure {
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid #dbe7df;
+      min-height: 190px;
+      position: relative;
+    }
+
+    .story-gallery figure img {
+      height: 100%;
+      transition: transform 0.35s ease;
+    }
+
+    .story-gallery figure:hover img {
+      transform: scale(1.05);
+    }
+
+    .story-gallery figure.full {
+      grid-column: 1 / -1;
+      min-height: 220px;
+    }
+
+    .reviews-grid {
+      padding: 0 24px 24px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .review {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .review strong {
+      color: #12372a;
+      font-size: 0.98rem;
+    }
+
+    .stars {
+      color: #cf8a1c;
+      letter-spacing: 0.1em;
+      font-size: 0.9rem;
+    }
+
+    .review p {
+      color: #55645d;
+      font-size: 0.9rem;
+    }
+
+    .contact-grid {
+      padding: 0 24px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .contact-card {
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 16px;
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .contact-card h3 {
+      font-size: 1.05rem;
+      color: #173a2c;
+    }
+
+    .meta-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .meta-list li {
+      background: #f8fcfa;
+      border: 1px solid #dce9e1;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 0.9rem;
+      color: #2f443a;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .cta-row .btn {
+      flex: 1 1 180px;
+    }
+
+    .map-frame {
+      border-radius: 14px;
+      border: 1px solid #dce9e1;
+      overflow: hidden;
+      min-height: 310px;
+    }
+
+    .map-frame iframe {
+      border: 0;
+      width: 100%;
+      height: 100%;
+      min-height: 310px;
+    }
+
+    .close-note {
+      margin-top: 8px;
+      font-size: 0.86rem;
+      color: #5a6961;
+    }
+
+    footer {
+      width: var(--container);
+      margin: 8px auto 120px;
+      text-align: center;
+      color: #4d6157;
+      font-size: 0.85rem;
+    }
+
+    .mobile-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 120;
+      display: none;
+      padding: 9px 10px calc(9px + env(safe-area-inset-bottom, 0px));
+      background: rgba(9, 18, 15, 0.94);
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(12px);
+    }
+
+    .mobile-bar .btn {
+      flex: 1;
+      min-height: 44px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      padding: 11px 10px;
+    }
+
+    .mobile-bar-wrap {
+      display: flex;
+      gap: 8px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-card {
+        max-width: 560px;
+      }
+
+      .highlights-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .menu-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .story-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      header {
+        padding-top: 66px;
+      }
+
+      .hero-bg img {
+        min-height: 640px;
+      }
+
+      .hero-grid {
+        padding: 20px;
+      }
+
+      .hero-title {
+        max-width: none;
+      }
+
+      .hero-sub {
+        margin-bottom: 18px;
+      }
+
+      .hero-cta .btn {
+        flex: 1 1 100%;
+      }
+
+      .quick-card {
+        padding: 14px;
+      }
+
+      .section-head {
+        padding: 20px 16px 0;
+      }
+
+      .highlights-grid,
+      .menu-grid,
+      .story-wrap,
+      .reviews-grid,
+      .contact-grid {
+        padding: 16px;
+        gap: 10px;
+      }
+
+      .highlights-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .menu-card {
+        min-height: 200px;
+      }
+
+      .story-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .story-gallery figure,
+      .story-gallery figure.full {
+        min-height: 220px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lang-switch {
+        top: 10px;
+        right: 10px;
+      }
+
+      .mobile-bar {
+        display: block;
+      }
+
+      footer {
+        margin-bottom: 98px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-switch" role="group" aria-label="Language switcher">
+    <button type="button" data-lang-btn="en" class="active">EN</button>
+    <button type="button" data-lang-btn="tr">TR</button>
+    <button type="button" data-lang-btn="ar">AR</button>
+  </div>
+
+  <header>
+    <section class="hero reveal">
+      <div class="hero-bg">
+        <img src="images/exterior-day.png" alt="Holaa Coffee House exterior daytime">
+      </div>
+      <div class="hero-grid">
+        <div>
+          <div class="brand">
+            <img src="images/logo-holaa.png" alt="Holaa Coffee House logo">
+            <div class="brand-title" data-i18n="brandLocation">Beylikduzu, Istanbul</div>
+          </div>
+          <h1 class="hero-title" data-i18n="heroTitle">Your New Favorite Coffee Spot in Beylikduzu</h1>
+          <p class="hero-sub" data-i18n="heroSub">Premium coffee, fresh desserts, and a vibe people keep coming back for. Walk in, pick up curbside, or order no-contact delivery.</p>
+          <div class="hero-chips">
+            <span class="chip" data-i18n="chipRating">4.3 ★ (29 reviews)</span>
+            <span class="chip" data-i18n="chipPrice">₺100-₺200 per person</span>
+            <span class="chip" data-i18n="chipOpen">Open today, closes 1:00 AM</span>
+          </div>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="tel:+905307293824" data-i18n="ctaCall">Call now</a>
+            <a class="btn btn-secondary" href="https://maps.google.com/?q=Kavakli%2C%20Yesilyurt%20Cd.%20Demir%20Country%20Sitesi%20H%20Blok%2017%2F2%2C%2034520%20Beylikduzu%2FIstanbul" target="_blank" rel="noopener noreferrer" data-i18n="ctaDirections">Get directions</a>
+          </div>
+        </div>
+
+        <aside class="quick-card">
+          <div class="quick-top">
+            <div>
+              <h2 data-i18n="quickTitle">Holaa Coffee House</h2>
+              <p data-i18n="quickSubtitle">Coffee shop in Demir Country</p>
+            </div>
+            <div class="rating-pill">
+              <strong>4.3</strong>
+              <span data-i18n="quickReviews">29 reviews</span>
+            </div>
+          </div>
+          <ul class="quick-list">
+            <li data-i18n="quickAddress">Kavakli, Yesilyurt Cd. Demir Country Sitesi H Blok 17/2, Beylikduzu / Istanbul</li>
+            <li data-i18n="quickService">Dine-in, curbside pickup, no-contact delivery</li>
+            <li data-i18n="quickPlusCode">Plus Code: XMM5+87 Beylikduzu, Istanbul</li>
+          </ul>
+          <div class="quick-buttons">
+            <a class="btn btn-primary" href="https://wa.me/905307293824?text=Hi%20Holaa%20Coffee%20House%2C%20I%20want%20to%20order." target="_blank" rel="noopener noreferrer" data-i18n="ctaWhatsApp">Order on WhatsApp</a>
+            <a class="btn btn-secondary" href="#contact" data-i18n="ctaReserve">See contact options</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="section-card reveal">
+      <div class="section-head">
+        <p class="section-eyebrow" data-i18n="highlightsEyebrow">Why People Choose Holaa</p>
+        <h2 class="section-title" data-i18n="highlightsTitle">A coffee experience that feels warm, modern, and social</h2>
+        <p class="section-sub" data-i18n="highlightsSub">Built for daily coffee rituals, sweet breaks, and catchups that run late into the night.</p>
+      </div>
+      <div class="highlights-grid">
+        <article class="highlight">
+          <h4 data-i18n="h1Title">Trusted by locals</h4>
+          <p data-i18n="h1Text">4.3 rating from real visitors and repeat customers.</p>
+        </article>
+        <article class="highlight">
+          <h4 data-i18n="h2Title">Great value tier</h4>
+          <p data-i18n="h2Text">Comfortable pricing around ₺100-₺200 per person.</p>
+        </article>
+        <article class="highlight">
+          <h4 data-i18n="h3Title">Flexible service</h4>
+          <p data-i18n="h3Text">Dine-in, curbside pickup, and no-contact delivery options.</p>
+        </article>
+        <article class="highlight">
+          <h4 data-i18n="h4Title">Late closing</h4>
+          <p data-i18n="h4Text">Open late and closes at 1:00 AM for evening coffee plans.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-card reveal">
+      <div class="section-head">
+        <p class="section-eyebrow" data-i18n="menuEyebrow">Top Picks</p>
+        <h2 class="section-title" data-i18n="menuTitle">Visual menu moments that sell fast</h2>
+        <p class="section-sub" data-i18n="menuSub">Use these as high-converting social proof visuals for ads, stories, and order prompts.</p>
+      </div>
+      <div class="menu-grid">
+        <article class="menu-card">
+          <img src="images/tea-dessert.png" alt="Tea and dessert selection">
+          <div class="menu-overlay">
+            <h3 data-i18n="m1Title">Tea + sweet plate</h3>
+            <p data-i18n="m1Text">Perfect for afternoon pairings.</p>
+          </div>
+        </article>
+        <article class="menu-card">
+          <img src="images/latte-top.png" alt="Latte art cup">
+          <div class="menu-overlay">
+            <h3 data-i18n="m2Title">Signature latte</h3>
+            <p data-i18n="m2Text">Instagram-ready coffee art.</p>
+          </div>
+        </article>
+        <article class="menu-card">
+          <img src="images/latte-cake-tray.png" alt="Latte and cake on tray">
+          <div class="menu-overlay">
+            <h3 data-i18n="m3Title">Coffee + cake combo</h3>
+            <p data-i18n="m3Text">Best-selling comfort combo.</p>
+          </div>
+        </article>
+        <article class="menu-card">
+          <img src="images/chocolate-cake.png" alt="Chocolate cake slice">
+          <div class="menu-overlay">
+            <h3 data-i18n="m4Title">Chocolate cake</h3>
+            <p data-i18n="m4Text">Rich, layered, and photogenic.</p>
+          </div>
+        </article>
+        <article class="menu-card">
+          <img src="images/promo-offer.png" alt="Dessert and coffee promotion poster">
+          <div class="menu-overlay">
+            <h3 data-i18n="m5Title">Dessert offer</h3>
+            <p data-i18n="m5Text">Promo-ready visual asset.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-card reveal">
+      <div class="section-head">
+        <p class="section-eyebrow" data-i18n="vibeEyebrow">The Vibe</p>
+        <h2 class="section-title" data-i18n="vibeTitle">Designed for conversations, photos, and repeat visits</h2>
+      </div>
+      <div class="story-wrap">
+        <div class="story-copy">
+          <p data-i18n="storyP1">Holaa combines clean modern seating with soft warm lighting to create a place where quick coffee runs turn into long stays.</p>
+          <p data-i18n="storyP2">The interior details and iconic corners make it easy to create content that brings new customers in organically.</p>
+          <ul class="story-points">
+            <li data-i18n="s1">Photo-friendly corner spots</li>
+            <li data-i18n="s2">Comfortable seating for groups</li>
+            <li data-i18n="s3">Day and night ambience appeal</li>
+          </ul>
+        </div>
+        <div class="story-gallery">
+          <figure><img src="images/interior-main.png" alt="Main seating area"></figure>
+          <figure><img src="images/interior-bear-wall.png" alt="Interior teddy bear wall"></figure>
+          <figure class="full"><img src="images/interior-swing.png" alt="Swing corner with flowers"></figure>
+          <figure class="full"><img src="images/exterior-night.png" alt="Holaa exterior at night"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card reveal">
+      <div class="section-head">
+        <p class="section-eyebrow" data-i18n="reviewsEyebrow">Review Highlights</p>
+        <h2 class="section-title" data-i18n="reviewsTitle">What customers say</h2>
+      </div>
+      <div class="reviews-grid">
+        <article class="review">
+          <strong>SUN RISE</strong>
+          <div class="stars">★★★★★</div>
+          <p data-i18n="r1">"Nice and very comfortable setting. Loved the Americano."</p>
+        </article>
+        <article class="review">
+          <strong>Bassam Alkhaldi</strong>
+          <div class="stars">★★★★★</div>
+          <p data-i18n="r2">"Smiley faces and good service."</p>
+        </article>
+        <article class="review">
+          <strong>Gulin Erturk</strong>
+          <div class="stars">★★★★★</div>
+          <p data-i18n="r3">"Tasted good and overall a pleasant cafe experience."</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-card reveal" id="contact">
+      <div class="section-head">
+        <p class="section-eyebrow" data-i18n="contactEyebrow">Contact & Visit</p>
+        <h2 class="section-title" data-i18n="contactTitle">Easy to find. Easy to order. Easy to return.</h2>
+      </div>
+      <div class="contact-grid">
+        <article class="contact-card">
+          <h3 data-i18n="visitInfoTitle">Visit information</h3>
+          <ul class="meta-list">
+            <li data-i18n="addressLine">Kavakli, Yesilyurt Cd. Demir Country Sitesi H Blok 17/2, 34520 Beylikduzu/Istanbul</li>
+            <li data-i18n="phoneLine">Phone: 0530 729 38 24</li>
+            <li data-i18n="locationLine">Located in: Demir Country</li>
+            <li data-i18n="servicesLine">Services: Dine-in / Curbside pickup / No-contact delivery</li>
+          </ul>
+          <p class="close-note" data-i18n="closeNote">Open now. Closes at 1:00 AM.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="tel:+905307293824" data-i18n="ctaCall">Call now</a>
+            <a class="btn btn-secondary" href="https://maps.google.com/?q=Kavakli%2C%20Yesilyurt%20Cd.%20Demir%20Country%20Sitesi%20H%20Blok%2017%2F2%2C%2034520%20Beylikduzu%2FIstanbul" target="_blank" rel="noopener noreferrer" data-i18n="ctaDirections">Get directions</a>
+          </div>
+        </article>
+        <article class="contact-card">
+          <h3 data-i18n="mapTitle">Map preview</h3>
+          <div class="map-frame">
+            <iframe
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Kavaklı,+Yeşilyurt+Cd.+Demir+Country+Sitesi+H+Blok+17/2,+34520+Beylikdüzü/İstanbul&output=embed"
+              title="Holaa Coffee House location">
+            </iframe>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p data-i18n="footerText">Holaa Coffee House - Beylikduzu | Made for high-conversion local traffic</p>
+  </footer>
+
+  <div class="mobile-bar">
+    <div class="mobile-bar-wrap">
+      <a class="btn btn-primary" href="tel:+905307293824" data-i18n="ctaCall">Call now</a>
+      <a class="btn btn-secondary" href="https://maps.google.com/?q=Kavakli%2C%20Yesilyurt%20Cd.%20Demir%20Country%20Sitesi%20H%20Blok%2017%2F2%2C%2034520%20Beylikduzu%2FIstanbul" target="_blank" rel="noopener noreferrer" data-i18n="ctaDirections">Get directions</a>
+      <a class="btn btn-secondary" href="https://wa.me/905307293824?text=Hi%20Holaa%20Coffee%20House%2C%20I%20want%20to%20order." target="_blank" rel="noopener noreferrer" data-i18n="ctaOrder">Order</a>
+    </div>
+  </div>
+
+  <script>
+    const translations = {
+      en: {
+        brandLocation: "Beylikduzu, Istanbul",
+        heroTitle: "Your New Favorite Coffee Spot in Beylikduzu",
+        heroSub: "Premium coffee, fresh desserts, and a vibe people keep coming back for. Walk in, pick up curbside, or order no-contact delivery.",
+        chipRating: "4.3 ★ (29 reviews)",
+        chipPrice: "₺100-₺200 per person",
+        chipOpen: "Open today, closes 1:00 AM",
+        ctaCall: "Call now",
+        ctaDirections: "Get directions",
+        quickTitle: "Holaa Coffee House",
+        quickSubtitle: "Coffee shop in Demir Country",
+        quickReviews: "29 reviews",
+        quickAddress: "Kavakli, Yesilyurt Cd. Demir Country Sitesi H Blok 17/2, Beylikduzu / Istanbul",
+        quickService: "Dine-in, curbside pickup, no-contact delivery",
+        quickPlusCode: "Plus Code: XMM5+87 Beylikduzu, Istanbul",
+        ctaWhatsApp: "Order on WhatsApp",
+        ctaReserve: "See contact options",
+        highlightsEyebrow: "Why People Choose Holaa",
+        highlightsTitle: "A coffee experience that feels warm, modern, and social",
+        highlightsSub: "Built for daily coffee rituals, sweet breaks, and catchups that run late into the night.",
+        h1Title: "Trusted by locals",
+        h1Text: "4.3 rating from real visitors and repeat customers.",
+        h2Title: "Great value tier",
+        h2Text: "Comfortable pricing around ₺100-₺200 per person.",
+        h3Title: "Flexible service",
+        h3Text: "Dine-in, curbside pickup, and no-contact delivery options.",
+        h4Title: "Late closing",
+        h4Text: "Open late and closes at 1:00 AM for evening coffee plans.",
+        menuEyebrow: "Top Picks",
+        menuTitle: "Visual menu moments that sell fast",
+        menuSub: "Use these as high-converting social proof visuals for ads, stories, and order prompts.",
+        m1Title: "Tea + sweet plate",
+        m1Text: "Perfect for afternoon pairings.",
+        m2Title: "Signature latte",
+        m2Text: "Instagram-ready coffee art.",
+        m3Title: "Coffee + cake combo",
+        m3Text: "Best-selling comfort combo.",
+        m4Title: "Chocolate cake",
+        m4Text: "Rich, layered, and photogenic.",
+        m5Title: "Dessert offer",
+        m5Text: "Promo-ready visual asset.",
+        vibeEyebrow: "The Vibe",
+        vibeTitle: "Designed for conversations, photos, and repeat visits",
+        storyP1: "Holaa combines clean modern seating with soft warm lighting to create a place where quick coffee runs turn into long stays.",
+        storyP2: "The interior details and iconic corners make it easy to create content that brings new customers in organically.",
+        s1: "Photo-friendly corner spots",
+        s2: "Comfortable seating for groups",
+        s3: "Day and night ambience appeal",
+        reviewsEyebrow: "Review Highlights",
+        reviewsTitle: "What customers say",
+        r1: "\"Nice and very comfortable setting. Loved the Americano.\"",
+        r2: "\"Smiley faces and good service.\"",
+        r3: "\"Tasted good and overall a pleasant cafe experience.\"",
+        contactEyebrow: "Contact & Visit",
+        contactTitle: "Easy to find. Easy to order. Easy to return.",
+        visitInfoTitle: "Visit information",
+        addressLine: "Kavakli, Yesilyurt Cd. Demir Country Sitesi H Blok 17/2, 34520 Beylikduzu/Istanbul",
+        phoneLine: "Phone: 0530 729 38 24",
+        locationLine: "Located in: Demir Country",
+        servicesLine: "Services: Dine-in / Curbside pickup / No-contact delivery",
+        closeNote: "Open now. Closes at 1:00 AM.",
+        mapTitle: "Map preview",
+        footerText: "Holaa Coffee House - Beylikduzu | Made for high-conversion local traffic",
+        ctaOrder: "Order"
+      },
+      tr: {
+        brandLocation: "Beylikduzu, Istanbul",
+        heroTitle: "Beylikduzu'ndeki Yeni Favori Kahve Noktaniz",
+        heroSub: "Premium kahve, taze tatlilar ve insanlari tekrar tekrar getiren bir atmosfer. Mekanda oturun, kaldirimdan teslim alin veya temassiz teslimat siparisi verin.",
+        chipRating: "4.3 ★ (29 degerlendirme)",
+        chipPrice: "Kisi basi ₺100-₺200",
+        chipOpen: "Bugun acik, 01:00'de kapaniyor",
+        ctaCall: "Hemen ara",
+        ctaDirections: "Yol tarifi al",
+        quickTitle: "Holaa Coffee House",
+        quickSubtitle: "Demir Country icinde kahveci",
+        quickReviews: "29 degerlendirme",
+        quickAddress: "Kavakli, Yesilyurt Cd. Demir Country Sitesi H Blok 17/2, Beylikduzu / Istanbul",
+        quickService: "Mekanda servis, kaldirimdan teslim, temassiz teslimat",
+        quickPlusCode: "Plus Kod: XMM5+87 Beylikduzu, Istanbul",
+        ctaWhatsApp: "WhatsApp'tan siparis ver",
+        ctaReserve: "Iletisim secenekleri",
+        highlightsEyebrow: "Insanlar Neden Holaa'yi Seciyor",
+        highlightsTitle: "Samimi, modern ve sosyal bir kahve deneyimi",
+        highlightsSub: "Gunluk kahve rutini, tatli molasi ve geceye uzayan bulusmalar icin tasarlandi.",
+        h1Title: "Yerelde guvenilir",
+        h1Text: "Gercek ziyaretcilerden 4.3 puan ve tekrar gelen musteri kitlesi.",
+        h2Title: "Guclu fiyat seviyesi",
+        h2Text: "Kisi basi ortalama ₺100-₺200 bandinda rahat fiyatlar.",
+        h3Title: "Esnek servis",
+        h3Text: "Mekanda servis, kaldirimdan teslim ve temassiz teslimat secenekleri.",
+        h4Title: "Gec saate kadar acik",
+        h4Text: "Aksam kahve planlari icin 01:00'e kadar acik.",
+        menuEyebrow: "En Cok Tercih Edilenler",
+        menuTitle: "Hizli satan gorsel menu anlari",
+        menuSub: "Bu gorseller reklam, hikaye ve siparis yonlendirmesinde yuksek donusum icin idealdir.",
+        m1Title: "Cay + tatli tabagi",
+        m1Text: "Ogleden sonra eslesmesi icin ideal.",
+        m2Title: "Imza latte",
+        m2Text: "Sosyal medyada one cikan latte sunumu.",
+        m3Title: "Kahve + pasta kombosu",
+        m3Text: "En cok satan konforlu ikili.",
+        m4Title: "Cikolatali pasta",
+        m4Text: "Yogun, katmanli ve cok fotogenik.",
+        m5Title: "Tatli kampanyasi",
+        m5Text: "Promosyon icin hazir gorsel.",
+        vibeEyebrow: "Atmosfer",
+        vibeTitle: "Sohbet, fotograf ve tekrar ziyaret icin tasarlandi",
+        storyP1: "Holaa, modern oturma duzeni ve sicak isiklarla hizli kahve molalarini uzun keyifli anlara donusturur.",
+        storyP2: "Icerideki dikkat cekici detaylar, organik olarak yeni musteri ceken icerik uretimini kolaylastirir.",
+        s1: "Fotograf icin ideal koseler",
+        s2: "Gruplar icin rahat oturma duzeni",
+        s3: "Gunduz ve geceye uygun ambiyans",
+        reviewsEyebrow: "Yorumlardan One Cikanlar",
+        reviewsTitle: "Musteriler ne diyor",
+        r1: "\"Cok rahat bir ortam, Americano cok iyiydi.\"",
+        r2: "\"Guler yuzlu ekip ve iyi hizmet.\"",
+        r3: "\"Lezzetliydi, genel olarak guzel bir kafe deneyimi.\"",
+        contactEyebrow: "Iletisim ve Ziyaret",
+        contactTitle: "Bulmasi kolay. Siparis vermesi kolay. Tekrar gelmesi kolay.",
+        visitInfoTitle: "Ziyaret bilgileri",
+        addressLine: "Kavakli, Yesilyurt Cd. Demir Country Sitesi H Blok 17/2, 34520 Beylikduzu/Istanbul",
+        phoneLine: "Telefon: 0530 729 38 24",
+        locationLine: "Bulundugu yer: Demir Country",
+        servicesLine: "Hizmetler: Mekanda / Kaldirimdan teslim / Temassiz teslimat",
+        closeNote: "Su an acik. 01:00'de kapaniyor.",
+        mapTitle: "Harita onizleme",
+        footerText: "Holaa Coffee House - Beylikduzu | Yuksek donusumlu yerel trafik icin tasarlandi",
+        ctaOrder: "Siparis ver"
+      },
+      ar: {
+        brandLocation: "بيليك دوزو، إسطنبول",
+        heroTitle: "مقهى القهوة المفضل الجديد في بيليك دوزو",
+        heroSub: "قهوة ممتازة، حلويات طازجة، وأجواء تجعل العملاء يعودون باستمرار. تناول داخل المقهى، استلام من السيارة، أو توصيل بدون تواصل.",
+        chipRating: "4.3 ★ (29 مراجعة)",
+        chipPrice: "₺100-₺200 للشخص",
+        chipOpen: "مفتوح اليوم، الإغلاق 1:00 صباحًا",
+        ctaCall: "اتصل الآن",
+        ctaDirections: "احصل على الاتجاهات",
+        quickTitle: "Holaa Coffee House",
+        quickSubtitle: "مقهى داخل ديمير كانتري",
+        quickReviews: "29 مراجعة",
+        quickAddress: "كاواكلي، شارع يشيل يورت، ديمير كانتري، بلوك H 17/2، بيليك دوزو / إسطنبول",
+        quickService: "داخل المقهى، استلام من السيارة، وتوصيل بدون تواصل",
+        quickPlusCode: "رمز الموقع: XMM5+87 بيليك دوزو، إسطنبول",
+        ctaWhatsApp: "اطلب عبر واتساب",
+        ctaReserve: "عرض خيارات التواصل",
+        highlightsEyebrow: "لماذا يختار الناس Holaa",
+        highlightsTitle: "تجربة قهوة دافئة وعصرية واجتماعية",
+        highlightsSub: "مناسب لروتين القهوة اليومي، واستراحات الحلويات، واللقاءات المسائية الطويلة.",
+        h1Title: "ثقة محلية",
+        h1Text: "تقييم 4.3 من الزوار الفعليين والعملاء المتكررين.",
+        h2Title: "سعر مناسب",
+        h2Text: "متوسط سعر مريح بين ₺100 و ₺200 للشخص.",
+        h3Title: "خدمة مرنة",
+        h3Text: "تناول داخل المقهى، استلام من السيارة، وتوصيل بدون تواصل.",
+        h4Title: "إغلاق متأخر",
+        h4Text: "مفتوح حتى 1:00 صباحًا لخطط القهوة المسائية.",
+        menuEyebrow: "الأكثر طلبًا",
+        menuTitle: "لحظات بصرية من القائمة ترفع المبيعات",
+        menuSub: "هذه الصور تعمل كدليل اجتماعي قوي للحملات والمنشورات وزيادة الطلبات.",
+        m1Title: "شاي + طبق حلو",
+        m1Text: "اختيار مثالي لفترة بعد الظهر.",
+        m2Title: "لاتيه مميز",
+        m2Text: "تقديم جذاب مناسب للسوشال ميديا.",
+        m3Title: "قهوة + كيك",
+        m3Text: "تركيبة مريحة ومن الأكثر مبيعًا.",
+        m4Title: "كيك شوكولاتة",
+        m4Text: "غني بطبقات واضحة وشكل جذاب.",
+        m5Title: "عرض حلويات",
+        m5Text: "صورة جاهزة للاستخدام الترويجي.",
+        vibeEyebrow: "الأجواء",
+        vibeTitle: "مصمم للمحادثات، الصور، والزيارات المتكررة",
+        storyP1: "يجمع Holaa بين الجلسات الحديثة والإضاءة الدافئة ليحوّل زيارة القهوة السريعة إلى تجربة أطول.",
+        storyP2: "تفاصيل المكان والزوايا المميزة تساعد على صناعة محتوى يجذب عملاء جدد بشكل طبيعي.",
+        s1: "زوايا مثالية للتصوير",
+        s2: "جلسات مريحة للمجموعات",
+        s3: "أجواء مناسبة نهارًا وليلًا",
+        reviewsEyebrow: "أبرز المراجعات",
+        reviewsTitle: "ماذا يقول العملاء",
+        r1: "\"مكان مريح جدًا والقهوة الأمريكية كانت ممتازة.\"",
+        r2: "\"وجوه مبتسمة وخدمة جيدة.\"",
+        r3: "\"الطعم جيد والتجربة بشكل عام لطيفة.\"",
+        contactEyebrow: "التواصل والزيارة",
+        contactTitle: "سهل الوصول. سهل الطلب. وسهل العودة.",
+        visitInfoTitle: "معلومات الزيارة",
+        addressLine: "كاواكلي، شارع يشيل يورت، ديمير كانتري، بلوك H 17/2، 34520 بيليك دوزو/إسطنبول",
+        phoneLine: "الهاتف: 0530 729 38 24",
+        locationLine: "الموقع داخل: Demir Country",
+        servicesLine: "الخدمات: داخل المقهى / استلام من السيارة / توصيل بدون تواصل",
+        closeNote: "مفتوح الآن. الإغلاق 1:00 صباحًا.",
+        mapTitle: "معاينة الخريطة",
+        footerText: "Holaa Coffee House - بيليك دوزو | صفحة مصممة لتحويل الزوار المحليين لعملاء",
+        ctaOrder: "اطلب الآن"
+      }
+    };
+
+    function setLanguage(lang) {
+      const selected = translations[lang] ? lang : "en";
+      document.documentElement.lang = selected;
+      document.documentElement.dir = selected === "ar" ? "rtl" : "ltr";
+      document.body.setAttribute("dir", selected === "ar" ? "rtl" : "ltr");
+      document.querySelectorAll("[data-lang-btn]").forEach((button) => {
+        button.classList.toggle("active", button.getAttribute("data-lang-btn") === selected);
+      });
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.getAttribute("data-i18n");
+        if (translations[selected][key]) {
+          element.textContent = translations[selected][key];
+        }
+      });
+      localStorage.setItem("holaa-lang", selected);
+    }
+
+    document.querySelectorAll("[data-lang-btn]").forEach((button) => {
+      button.addEventListener("click", () => {
+        setLanguage(button.getAttribute("data-lang-btn"));
+      });
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+    setLanguage(localStorage.getItem("holaa-lang") || "en");
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CafeOrCoffeeShop",
+    "name": "Holaa Coffee House - Beylikduzu",
+    "image": [
+      "images/exterior-day.png",
+      "images/interior-main.png",
+      "images/latte-top.png"
+    ],
+    "telephone": "+90 530 729 38 24",
+    "priceRange": "₺100-₺200",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Kavakli, Yesilyurt Cd. Demir Country Sitesi H Blok 17/2",
+      "addressLocality": "Beylikduzu",
+      "addressRegion": "Istanbul",
+      "postalCode": "34520",
+      "addressCountry": "TR"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.3",
+      "reviewCount": "29"
+    },
+    "servesCuisine": ["Coffee", "Desserts"],
+    "sameAs": []
+  }
+  </script>
+</body>
+</html>
