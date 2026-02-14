@@ -124,7 +124,7 @@
     }
 
     header {
-      padding-top: 80px;
+      padding-top: 132px;
     }
 
     .hero {
@@ -173,14 +173,14 @@
       z-index: 130;
       background: rgba(255, 255, 255, 0.94);
       border: 1px solid rgba(255, 255, 255, 0.85);
-      border-radius: 14px;
-      padding: 8px;
+      border-radius: 16px;
+      padding: 10px;
       box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
       max-width: calc(100vw - 20px);
     }
 
     .hero-logo-float img {
-      width: 170px;
+      width: clamp(240px, 24vw, 360px);
       max-width: 100%;
       height: auto;
       object-fit: contain;
@@ -658,33 +658,81 @@
 
     .form-wrap {
       padding: 0 24px 24px;
+    }
+
+    .inquiry-form {
+      border-radius: 16px;
+      border: 1px solid #dce9e1;
+      background: #fff;
+      padding: 18px;
       display: grid;
       gap: 12px;
     }
 
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+      font-size: 0.87rem;
+      color: #234236;
+      font-weight: 700;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #cfe0d7;
+      background: #f9fcfa;
+      padding: 11px 12px;
+      font-size: 0.95rem;
+      color: #1f2e28;
+      font-family: inherit;
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 115px;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: 2px solid rgba(26, 162, 111, 0.35);
+      border-color: #1ba26f;
+      background: #ffffff;
+    }
+
     .form-actions {
       display: flex;
-      flex-wrap: wrap;
       gap: 10px;
+      flex-wrap: wrap;
     }
 
     .form-actions .btn {
       flex: 1 1 220px;
     }
 
-    .form-frame {
-      border-radius: 14px;
-      border: 1px solid #dce9e1;
-      overflow: hidden;
-      min-height: 560px;
-      background: #fff;
+    .form-note {
+      font-size: 0.84rem;
+      color: #5d6c65;
     }
 
-    .form-frame iframe {
-      width: 100%;
-      height: 100%;
-      min-height: 560px;
-      border: 0;
+    .form-status {
+      min-height: 1.2em;
+      font-size: 0.86rem;
+      color: #0f6e4b;
+      font-weight: 700;
     }
 
     .close-note {
@@ -766,18 +814,18 @@
 
     @media (max-width: 760px) {
       header {
-        padding-top: 76px;
+        padding-top: 116px;
       }
 
       .hero-logo-float {
         top: 8px;
         left: 8px;
-        padding: 6px;
-        border-radius: 10px;
+        padding: 8px;
+        border-radius: 12px;
       }
 
       .hero-logo-float img {
-        width: 112px;
+        width: min(72vw, 250px);
       }
 
       .hero-bg img {
@@ -822,6 +870,10 @@
         gap: 10px;
       }
 
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
       .highlights-grid {
         grid-template-columns: 1fr;
       }
@@ -831,7 +883,7 @@
       }
 
       .menu-card {
-        min-height: 200px;
+        min-height: 180px;
       }
 
       .menu-grid .menu-card:last-child {
@@ -847,7 +899,7 @@
       }
 
       .story-gallery figure {
-        min-height: 220px;
+        min-height: 190px;
       }
 
       .contact-grid {
@@ -867,14 +919,9 @@
         margin-bottom: 98px;
       }
 
-      .form-frame,
-      .form-frame iframe {
-        min-height: 460px;
+      .inquiry-form {
+        padding: 14px;
       }
-    }
-
-    .brand {
-      margin-top: 6px;
     }
   </style>
 </head>
@@ -884,14 +931,14 @@
     <button type="button" data-lang-btn="tr">TR</button>
     <button type="button" data-lang-btn="ar">AR</button>
   </div>
+  <div class="hero-logo-float" aria-label="Holaa Coffee House logo">
+    <img src="images/logo-holaa.png" alt="Holaa Coffee House logo">
+  </div>
 
   <header>
     <section class="hero reveal">
       <div class="hero-bg">
         <img src="images/exterior-day.png" alt="Holaa Coffee House exterior daytime">
-      </div>
-      <div class="hero-logo-float" aria-label="Holaa Coffee House logo">
-        <img src="images/logo-holaa.png" alt="Holaa Coffee House logo">
       </div>
       <div class="hero-grid">
         <div class="hero-copy">
@@ -928,7 +975,7 @@
             <li data-i18n="quickPlusCode">Plus Code: XMM5+87 Beylikdüzü, İstanbul</li>
           </ul>
           <div class="quick-buttons">
-            <a class="btn btn-primary" href="https://tally.so/r/VL56ly" target="_blank" rel="noopener noreferrer" data-i18n="ctaWhatsApp" data-i18n-href="leadFormUrl">Open inquiry form</a>
+            <a class="btn btn-primary" href="#inquiry-form" data-i18n="ctaWhatsApp">Open inquiry form</a>
             <a class="btn btn-secondary" href="#contact" data-i18n="ctaReserve">See contact options</a>
           </div>
         </aside>
@@ -1064,20 +1111,44 @@
       <div class="section-head">
         <p class="section-eyebrow" data-i18n="formEyebrow">Inquiry Form</p>
         <h2 class="section-title" data-i18n="formTitle">Send reservation or order details in one minute</h2>
-        <p class="section-sub" data-i18n="formSub">The form changes by language automatically (EN / TR / AR).</p>
       </div>
       <div class="form-wrap">
-        <div class="form-actions">
-          <a class="btn btn-primary" href="https://tally.so/r/VL56ly" target="_blank" rel="noopener noreferrer" data-i18n="ctaOpenForm" data-i18n-href="leadFormUrl">Open form in new tab</a>
-        </div>
-        <div class="form-frame">
-          <iframe
-            loading="lazy"
-            src="https://tally.so/r/VL56ly?transparentBackground=1"
-            data-i18n-src="leadFormEmbedUrl"
-            title="Holaa Coffee House inquiry form">
-          </iframe>
-        </div>
+        <form id="inquiryForm" class="inquiry-form">
+          <div class="form-grid">
+            <label class="field">
+              <span data-i18n="fName">Full name</span>
+              <input type="text" name="name" required data-i18n-placeholder="fNamePh" placeholder="Your full name">
+            </label>
+            <label class="field">
+              <span data-i18n="fPhone">Phone / WhatsApp</span>
+              <input type="tel" name="phone" required data-i18n-placeholder="fPhonePh" placeholder="+90 ...">
+            </label>
+            <label class="field">
+              <span data-i18n="fService">Service type</span>
+              <select name="service" required>
+                <option value="" data-i18n="fServiceSelect">Select service</option>
+                <option value="dine_in" data-i18n="fServiceDineIn">Dine-in</option>
+                <option value="pickup" data-i18n="fServicePickup">Curbside pickup</option>
+                <option value="delivery" data-i18n="fServiceDelivery">No-contact delivery</option>
+                <option value="event" data-i18n="fServiceEvent">Event / Group reservation</option>
+              </select>
+            </label>
+            <label class="field">
+              <span data-i18n="fTime">Preferred time</span>
+              <input type="text" name="time" data-i18n-placeholder="fTimePh" placeholder="Today 7:30 PM">
+            </label>
+            <label class="field full">
+              <span data-i18n="fMessage">Message</span>
+              <textarea name="message" data-i18n-placeholder="fMessagePh" placeholder="What would you like to order or reserve?"></textarea>
+            </label>
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit" data-i18n="fSubmit">Send inquiry</button>
+            <a class="btn btn-secondary" href="tel:+905307293824" data-i18n="ctaCall">Call now</a>
+          </div>
+          <p class="form-note" data-i18n="fNote">This is a demo form. Submitting opens WhatsApp with your pre-filled details.</p>
+          <p id="formStatus" class="form-status" aria-live="polite"></p>
+        </form>
       </div>
     </section>
 
@@ -1099,7 +1170,7 @@
           <div class="cta-row">
             <a class="btn btn-primary" href="tel:+905307293824" data-i18n="ctaCall">Call now</a>
             <a class="btn btn-secondary" href="https://maps.app.goo.gl/grzY8E8irJGdfDU97" target="_blank" rel="noopener noreferrer" data-i18n="ctaDirections">Get directions</a>
-            <a class="btn btn-secondary" href="https://tally.so/r/VL56ly" target="_blank" rel="noopener noreferrer" data-i18n="ctaForm" data-i18n-href="leadFormUrl">Inquiry form</a>
+            <a class="btn btn-secondary" href="#inquiry-form" data-i18n="ctaForm">Inquiry form</a>
           </div>
         </article>
         <article class="contact-card">
@@ -1125,7 +1196,7 @@
     <div class="mobile-bar-wrap">
       <a class="btn btn-primary" href="tel:+905307293824" data-i18n="ctaCall">Call now</a>
       <a class="btn btn-secondary" href="https://maps.app.goo.gl/grzY8E8irJGdfDU97" target="_blank" rel="noopener noreferrer" data-i18n="ctaDirections">Get directions</a>
-      <a class="btn btn-secondary" href="https://tally.so/r/VL56ly" target="_blank" rel="noopener noreferrer" data-i18n="ctaOrder" data-i18n-href="leadFormUrl">Order</a>
+      <a class="btn btn-secondary" href="#inquiry-form" data-i18n="ctaOrder">Order</a>
     </div>
   </div>
 
@@ -1138,11 +1209,8 @@
         chipRating: "4.3 ★ (29 reviews)",
         chipPrice: "₺100-₺200 per person",
         chipOpen: "Open today, closes 1:00 AM",
-        leadFormUrl: "https://tally.so/r/VL56ly",
-        leadFormEmbedUrl: "https://tally.so/r/VL56ly?transparentBackground=1",
         ctaCall: "Call now",
         ctaDirections: "Get directions",
-        ctaOpenForm: "Open form in new tab",
         quickTitle: "Holaa Coffee House",
         quickSubtitle: "Coffee shop in Demir Country",
         quickReviews: "29 reviews",
@@ -1186,7 +1254,23 @@
         reviewsTitle: "What customers say",
         formEyebrow: "Inquiry Form",
         formTitle: "Send reservation or order details in one minute",
-        formSub: "The form changes by language automatically (EN / TR / AR).",
+        fName: "Full name",
+        fNamePh: "Your full name",
+        fPhone: "Phone / WhatsApp",
+        fPhonePh: "+90 ...",
+        fService: "Service type",
+        fServiceSelect: "Select service",
+        fServiceDineIn: "Dine-in",
+        fServicePickup: "Curbside pickup",
+        fServiceDelivery: "No-contact delivery",
+        fServiceEvent: "Event / Group reservation",
+        fTime: "Preferred time",
+        fTimePh: "Today 7:30 PM",
+        fMessage: "Message",
+        fMessagePh: "What would you like to order or reserve?",
+        fSubmit: "Send inquiry",
+        fNote: "This is a demo form. Submitting opens WhatsApp with your pre-filled details.",
+        fStatusSent: "Opening WhatsApp with your inquiry...",
         r1: "\"Nice and very comfortable setting. Loved the Americano.\"",
         r2: "\"Smiley faces and good service.\"",
         r3: "\"Tasted good and overall a pleasant cafe experience.\"",
@@ -1210,11 +1294,8 @@
         chipRating: "4.3 ★ (29 değerlendirme)",
         chipPrice: "Kişi başı ₺100-₺200",
         chipOpen: "Bugün açık, 01:00'de kapanıyor",
-        leadFormUrl: "https://tally.so/r/MezxAk",
-        leadFormEmbedUrl: "https://tally.so/r/MezxAk?transparentBackground=1",
         ctaCall: "Hemen ara",
         ctaDirections: "Yol tarifi al",
-        ctaOpenForm: "Formu yeni sekmede aç",
         quickTitle: "Holaa Coffee House",
         quickSubtitle: "Demir Country içinde kahveci",
         quickReviews: "29 değerlendirme",
@@ -1258,7 +1339,23 @@
         reviewsTitle: "Müşteriler ne diyor",
         formEyebrow: "Talep Formu",
         formTitle: "Rezervasyon veya sipariş detaylarını 1 dakikada gönder",
-        formSub: "Form, seçilen dile göre otomatik değişir (EN / TR / AR).",
+        fName: "Ad soyad",
+        fNamePh: "Adınız soyadınız",
+        fPhone: "Telefon / WhatsApp",
+        fPhonePh: "+90 ...",
+        fService: "Hizmet türü",
+        fServiceSelect: "Hizmet seçin",
+        fServiceDineIn: "Mekanda",
+        fServicePickup: "Kaldırımdan teslim",
+        fServiceDelivery: "Temassız teslimat",
+        fServiceEvent: "Etkinlik / Grup rezervasyonu",
+        fTime: "Tercih edilen saat",
+        fTimePh: "Bugün 19:30",
+        fMessage: "Mesaj",
+        fMessagePh: "Ne sipariş etmek veya rezerve etmek istersiniz?",
+        fSubmit: "Talep gönder",
+        fNote: "Bu bir demo formudur. Gönderim sonrası bilgileriniz WhatsApp mesajı olarak açılır.",
+        fStatusSent: "Talebiniz WhatsApp ile açılıyor...",
         r1: "\"Çok rahat bir ortam, Americano çok iyiydi.\"",
         r2: "\"Güler yüzlü ekip ve iyi hizmet.\"",
         r3: "\"Lezzetliydi, genel olarak güzel bir kafe deneyimi.\"",
@@ -1282,11 +1379,8 @@
         chipRating: "4.3 ★ (29 مراجعة)",
         chipPrice: "₺100-₺200 للشخص",
         chipOpen: "مفتوح اليوم، الإغلاق 1:00 صباحًا",
-        leadFormUrl: "https://tally.so/r/EkQO1r",
-        leadFormEmbedUrl: "https://tally.so/r/EkQO1r?transparentBackground=1",
         ctaCall: "اتصل الآن",
         ctaDirections: "احصل على الاتجاهات",
-        ctaOpenForm: "افتح النموذج في تبويب جديد",
         quickTitle: "Holaa Coffee House",
         quickSubtitle: "مقهى داخل ديمير كانتري",
         quickReviews: "29 مراجعة",
@@ -1330,7 +1424,23 @@
         reviewsTitle: "ماذا يقول العملاء",
         formEyebrow: "نموذج الطلب",
         formTitle: "أرسل تفاصيل الحجز أو الطلب خلال دقيقة واحدة",
-        formSub: "النموذج يتغير تلقائيًا حسب اللغة (EN / TR / AR).",
+        fName: "الاسم الكامل",
+        fNamePh: "اكتب الاسم الكامل",
+        fPhone: "الهاتف / واتساب",
+        fPhonePh: "+90 ...",
+        fService: "نوع الخدمة",
+        fServiceSelect: "اختر الخدمة",
+        fServiceDineIn: "داخل المقهى",
+        fServicePickup: "استلام من السيارة",
+        fServiceDelivery: "توصيل بدون تواصل",
+        fServiceEvent: "حجز مجموعة / مناسبة",
+        fTime: "الوقت المفضل",
+        fTimePh: "اليوم 7:30 مساءً",
+        fMessage: "الرسالة",
+        fMessagePh: "ماذا تريد أن تطلب أو تحجز؟",
+        fSubmit: "إرسال الطلب",
+        fNote: "هذا نموذج تجريبي. عند الإرسال سيتم فتح واتساب بالبيانات المكتوبة.",
+        fStatusSent: "جارٍ فتح واتساب مع تفاصيل الطلب...",
         r1: "\"مكان مريح جدًا والقهوة الأمريكية كانت ممتازة.\"",
         r2: "\"وجوه مبتسمة وخدمة جيدة.\"",
         r3: "\"الطعم جيد والتجربة بشكل عام لطيفة.\"",
@@ -1349,8 +1459,11 @@
       }
     };
 
+    let currentLang = "en";
+
     function setLanguage(lang) {
       const selected = translations[lang] ? lang : "en";
+      currentLang = selected;
       document.documentElement.lang = selected;
       document.documentElement.dir = selected === "ar" ? "rtl" : "ltr";
       document.body.setAttribute("dir", selected === "ar" ? "rtl" : "ltr");
@@ -1363,16 +1476,10 @@
           element.textContent = translations[selected][key];
         }
       });
-      document.querySelectorAll("[data-i18n-href]").forEach((element) => {
-        const key = element.getAttribute("data-i18n-href");
+      document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+        const key = element.getAttribute("data-i18n-placeholder");
         if (translations[selected][key]) {
-          element.setAttribute("href", translations[selected][key]);
-        }
-      });
-      document.querySelectorAll("[data-i18n-src]").forEach((element) => {
-        const key = element.getAttribute("data-i18n-src");
-        if (translations[selected][key]) {
-          element.setAttribute("src", translations[selected][key]);
+          element.setAttribute("placeholder", translations[selected][key]);
         }
       });
       localStorage.setItem("holaa-lang", selected);
@@ -1383,6 +1490,37 @@
         setLanguage(button.getAttribute("data-lang-btn"));
       });
     });
+
+    const inquiryForm = document.getElementById("inquiryForm");
+    const formStatus = document.getElementById("formStatus");
+
+    if (inquiryForm) {
+      inquiryForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const t = translations[currentLang] || translations.en;
+        const name = inquiryForm.elements.name.value.trim();
+        const phone = inquiryForm.elements.phone.value.trim();
+        const time = inquiryForm.elements.time.value.trim();
+        const message = inquiryForm.elements.message.value.trim();
+        const serviceSelect = inquiryForm.elements.service;
+        const serviceText = serviceSelect.options[serviceSelect.selectedIndex]?.text || "";
+
+        const lines = [
+          "Holaa Coffee House - Demo Inquiry",
+          `${t.fName}: ${name}`,
+          `${t.fPhone}: ${phone}`,
+          `${t.fService}: ${serviceText}`
+        ];
+
+        if (time) lines.push(`${t.fTime}: ${time}`);
+        if (message) lines.push(`${t.fMessage}: ${message}`);
+
+        const waUrl = `https://wa.me/905307293824?text=${encodeURIComponent(lines.join("\n"))}`;
+        const opened = window.open(waUrl, "_blank", "noopener,noreferrer");
+        if (!opened) window.location.href = waUrl;
+        if (formStatus) formStatus.textContent = t.fStatusSent;
+      });
+    }
 
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
